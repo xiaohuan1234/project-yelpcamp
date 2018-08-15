@@ -2,6 +2,7 @@ var express     = require("express"),
     router      = express.Router({mergeParams: true}),
     passport    = require("passport"),
     User        = require("../models/user"),
+    Campground  = require("../models/campground"),
     Async       = require("async"),
     nodemailer  = require("nodemailer"),
     crypto      = require("crypto");
@@ -58,9 +59,17 @@ router.get("/users/:username", function(req, res) {
             req.flash("error", "can't find the user by name " + req.params.username);
             res.redirect("/");
         } else {
-            console.log("user:");
-            console.log(foundUser);
-            res.render("./user/show", {user: foundUser});
+            Campground.find({"author.id": foundUser._id}, function(err, foundCampgrounds){
+               if(err) {
+                   console.log("can't find any campground by this user");
+                   res.redirect("/campgrounds");
+               } else {
+                   console.log("this user has created these campgrounds:");
+                   console.log(foundCampgrounds);
+                   res.render("./user/show", {user: foundUser, campgrounds: foundCampgrounds});
+               }
+            });
+            
         }
     })
 })
