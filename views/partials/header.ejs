@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>yelp camp</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js" integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ=" crossorigin="anonymous"></script>        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/v4-shims.css">
+
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg" style="margin-bottom: 20px;">
+            <a class="navbar-brand" href="/">Yelp Camp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fa fa-navicon"></i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!--<ul class="navbar-nav mr-auto">-->
+                <!--  <li class="nav-item active">-->
+                <!--    <a class="nav-link" href="#">Link 1<span class="sr-only">(current)</span></a>-->
+                <!--  </li>-->
+                <!--  <li class="nav-item">-->
+                <!--    <a class="nav-link" href="#">Link 2</a>-->
+                <!--  </li>-->
+                <!--</ul>-->
+                <ul class="navbar-nav ml-auto">
+                    <%if(!currentUser){%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Sign Up</a>
+                    </li>
+                    <%} else {%>
+                    <li class="nav-item">
+                        <span class="nav-link">Hello, <a class="user-profile-link" href="/users/<%=currentUser.username%>"><%=currentUser.username%></a>!</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Log Out</a>
+                    </li>
+                    <%}%>
+                </ul>
+            </div>
+        </nav>
+        <%if(success && success.length > 0){%>
+        <div class="alert alert-success container" role="alert"><%=success%></div>
+        <%}%>
+        <%if(error && error.length > 0){%>
+        <div class="alert alert-danger container" role="alert"><%=error%></div>
+        <%}%>
+        <div class="container">

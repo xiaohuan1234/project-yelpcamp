@@ -1,0 +1,48 @@
+<%include partials/header%>
+<form action="/register" method="POST" class="col-lg-6 mx-auto">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <input type="text" class="form-control" name="newUser[username]" placeholder="username (required)" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <input type="password" class="form-control" name="password" placeholder="password (required)" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" name="newUser[firstName]" placeholder="First name">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" name="newUser[lastName]" placeholder="Last name">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <input type="text" class="form-control" name="newUser[email]" placeholder="Email (required)" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <input type="tel" class="form-control" name="newUser[phone]" placeholder="phone">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <input type="url" class="form-control" name="newUser[profilePicture]" placeholder="profile picture">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <input type="url" class="form-control" name="newUser[backgroundPicture]" placeholder="background picture">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <input type="text" class="form-control" name="adminCode" placeholder="admin code">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary float-right">Sign Up</button>
+</form>
+<%include partials/footer%>

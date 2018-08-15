@@ -1,0 +1,51 @@
+<%include ../partials/header%>
+
+<div class="card" style="width: 60%; margin: 0px auto;">
+  
+  <div class="card-header">
+    <h5>
+    <span><%=campground.name%></span>
+    <span class="float-right">$<%=campground.price%>/night</span>
+    </h5>
+    <p class="card-text"><%=campground.description%></p>
+    <p class="card-text"><small class="text-muted">created by <%=campground.author.name%>, <%=moment(campground.createdAt).fromNow()%></small></p>
+    <%if(currentUser && (campground.author.id.equals(currentUser._id) || currentUser.isAdmin)){%>
+    <div>
+        <a href="/campgrounds/<%=campground._id%>/edit" class="card-link btn btn-sm btn-primary">Edit</a>
+        <form class="btn-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                <button class="card-link  btn btn-sm btn-danger">Delete</button>
+        </form>
+    </div>
+    <%}%>
+  </div>
+  <img class="card-img"  style="border-radius: 0px" src="<%=campground.image%>" alt="Card image cap">
+  <div class="card-footer">
+    <div style="height: 50px;">
+      <p class="float-left card-text btn-inline"><%=campground.comments.length%> comments</p>
+      <a class="float-right card-link  btn btn-sm btn-success btn-inline" href="/campgrounds/<%=campground._id%>/comments/new">Add a comment</a>
+    </div>        
+    <div>
+      <%campground.comments.forEach(function(comment){%>
+        <p class="comment-header">
+          <strong><%=comment.author.name%></strong>
+          <span class="float-right"><small class="text-muted"><%=moment(comment.createdAt).fromNow()%></small></span>
+          <p class="speech-bubble"><%=comment.text%></p>
+        </p>
+        <%if(currentUser && (comment.author.id.equals(currentUser._id) || currentUser.isAdmin)){%>
+          <div class="comment">
+            <a href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit" class="card-link  btn btn-primary btn-sm">
+              edit
+            </a>
+            <form action="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST" class="btn-inline">
+              <button class="card-link  btn btn-sm btn-danger">
+                delete
+              </button>
+            </form>
+          </div>            
+        <%}%>
+      <%});%>
+    </div>
+  </div>
+</div>
+
+<%include ../partials/footer%>

@@ -1,0 +1,86 @@
+body {
+    background-color: black;
+}
+
+#landing-header {
+    text-align: center;
+    padding-top: 40vh;
+    position: relative;
+    z-index: 1;
+}
+
+#landing-header h1 {
+    color: white;
+}
+
+.slideshow {
+    position: fixed;
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+}
+
+.slideshow li {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: imageAnimation 50s linear infinite;
+}
+
+.slideshow li:nth-child(1){
+    background-image: url("https://media0.giphy.com/media/gw3NpMPvrN64YrC0/giphy.gif");
+}
+
+.slideshow li:nth-child(2){
+    background-image: url("http://coveteur.com/wp-content/uploads/2017/03/Three_Fish_Roll_1.gif");
+    animation-delay: 10s;
+}
+
+.slideshow li:nth-child(3){
+    background-image: url("https://media1.tenor.com/images/d14036639ace18d0fe035c5b28c526c0/tenor.gif?itemid=4131205");
+    animation-delay: 20s;
+}
+
+.slideshow li:nth-child(4){
+    background-image: url("https://media.giphy.com/media/Yw8kFbeDlutgI/giphy.gif");
+    animation-delay: 30s;
+}
+
+.slideshow li:nth-child(5){
+    background-image: url("https://media.giphy.com/media/3oKIPbV4CRWwIDizgQ/giphy.gif");
+    animation-delay: 40s;
+}
+
+@keyframes imageAnimation {
+   0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  5% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+}
+
+/* Older browser support - class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}

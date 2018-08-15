@@ -1,0 +1,59 @@
+/*body {*/
+/*    background: lightblue;*/
+/*}*/
+.btn-inline {
+    display: inline;
+}
+.navbar * {
+    color: black;
+}
+.user-profile {
+    margin: -20px;
+    height: 100vh;
+}
+.background-picture {
+    width: 600px;
+    height: 600px;
+    overflow: hidden;
+    object-fit: cover;
+}
+.username{
+    position: absolute;
+    top: 400px;
+    left: 700px;
+}
+.profile-picture {
+    margin-left: 100px;
+    margin-top: 100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+}
+.comment {
+    margin-bottom: 30px;
+}
+
+.comment-header {
+    margin-bottom: 3px;
+}
+.speech-bubble {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #ccc;
+}
+/*.campground-gallery {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+/*.campground p {*/
+/*    text-align: center;*/
+/*}*/
+/*.thumbnail img {*/
+    /*display: block;*/
+    /*margin: 10px auto 50px auto;*/
+    /*width: 300px;*/
+/*    height: ;*/
+/*    object-fit: cover;*/
+/*}*/

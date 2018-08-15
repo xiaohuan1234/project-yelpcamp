@@ -1,0 +1,20 @@
+<%include ../partials/header%>
+<!--<div class="container user-profile" style="border: 1px solid grey">-->
+<!--<h1><%=user.username%></h1>-->
+<div class="row user-profile">
+    
+        <img class="background-picture" src="<%=user.backgroundPicture%>">
+    
+    <!--<div class="col-6 ">-->
+        <img class="profile-picture" src="<%=user.profilePicture%>">
+        <div class="username">
+            <p><%=user.username%></p>
+            <!--<p><i class="far fa-envelope"></i><%=user.email%></p>-->
+            <!--<p><i class="fas fa-mobile-alt"></i><%=user.phone%></p>-->
+            <p><%=user.email%></p>
+            <p><%=user.phone%></p>
+        </div>
+    <!--</div>-->
+</div>
+
+<%include ../partials/footer%>

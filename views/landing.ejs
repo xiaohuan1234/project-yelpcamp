@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>yelp camp</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/landing.css">
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js" integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ=" crossorigin="anonymous"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" async></script>
+    </head>
+    <body>
+        <div class="container">
+            <%if(success && success.length > 0){%>
+                <div class="alert alert-success" role="alert"><%=success%></div>
+            <%}%>
+            <%if(error && error.length > 0){%>
+                <div class="alert alert-danger" role="alert"><%=error%></div>
+            <%}%>
+        
+            <div id="landing-header">
+                <h1>Welcome To Abbey.Today!</h1>
+                <a href="/campgrounds" class="btn btn-lg btn-success">View Meals</a>
+            </div>
+            <ul class="slideshow">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+<%include ./partials/footer%>    
